@@ -10403,7 +10403,7 @@
         "kind": 6,
         "importPath": "apps.Autenticacion.autenticacion.api.views",
         "description": "apps.Autenticacion.autenticacion.api.views",
-        "peekOfCode": "class LogoutConCookieView(APIView):\n    def post(self, request):\n        response = Response({\"message\": \"Sesión cerrada\"}, status=200)\n        # Eliminar las cookies de access_token y refresh_token\n        response.delete_cookie(\"access_token\")\n        response.delete_cookie(\"refresh_token\")\n        return response",
+        "peekOfCode": "class LogoutConCookieView(APIView):\n    def post(self, request):\n        response = Response({\"message\": \"Sesión cerrada\"}, status=200)\n        response.delete_cookie(\"access_token\")\n        response.delete_cookie(\"refresh_token\")\n        return response",
         "detail": "apps.Autenticacion.autenticacion.api.views",
         "documentation": {}
     },

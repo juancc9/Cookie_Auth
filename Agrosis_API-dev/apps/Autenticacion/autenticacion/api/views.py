@@ -22,13 +22,12 @@ class CustomLoginView(TokenObtainPairView):
 
             res = Response({"message": "Login successful"}, status=status.HTTP_200_OK)
 
-            # Seteamos cookie segura con el token
-            res.set_cookie(   # <-- antes decía response.set_cookie
+            res.set_cookie(   
                 key='access_token',
-                value=access_token,   # <-- antes decía token
+                value=access_token,   
                 httponly=True,
-                secure=True,          # ⬅️ requerido para SameSite=None
-                samesite='None',       # ⬅️ permite cross-site
+                secure=True,         
+                samesite='None',      
             )
             return res
         else:
@@ -38,7 +37,6 @@ class LogoutConCookieView(APIView):
     def post(self, request):
         response = Response({"message": "Sesión cerrada"}, status=200)
 
-        # Eliminar las cookies de access_token y refresh_token
         response.delete_cookie("access_token")
         response.delete_cookie("refresh_token")
 

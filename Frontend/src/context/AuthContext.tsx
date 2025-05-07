@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 
 interface Rol {
   id: number;
-  nombre: string; // cambiado a string para mayor flexibilidad
+  nombre: string; 
   permisos: string[];
 }
 
@@ -66,7 +66,7 @@ export const AuthProvider: React.FC<{ children: ReactNode }> = ({ children }) =>
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify({ email, password }), // corregido aquí
+        body: JSON.stringify({ email, password }), 
       });
 
       if (!response.ok) {
